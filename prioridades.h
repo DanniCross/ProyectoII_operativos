@@ -7,7 +7,7 @@
 procesos *OrdenarTL(procesos *pro, int a, int b);
 
 //Algoritmo de planificación expulsivo basado en prioridad.
-procesos *ABPX(procesos *pro, procesos *proT, int cont){
+void ABPX(procesos *pro, procesos *proT, int cont){
     printf("\nAlgoritmo expulsivo basado en prioridad.\n");
     double tp, tf = 0;
     int pass, f, h = 0;
@@ -84,9 +84,16 @@ procesos *ABPX(procesos *pro, procesos *proT, int cont){
 	       k = k - 1;
 	   }
 	}
+    } 
+    for(int n = 0; n < cont - 1; n++){
+        tp += proT[n].TEjecucion;
+	printf("\nCliente %s, terminó su diligencia en %d segundos",proT[n].proceso, proT[n].TEjecucion);
     }
-    
-    return pro;   
+
+        printf("\n\nLa suma de los tiempos es: %2.1f segundos",tp);
+        tp = tp / (cont - 1);
+        printf("\nTiempo promedio en ABPX fue: %2.2f segundos\n",tp);
+        printf("-------------------------------------------------------------\n");
 }
 
 //Ordenamiento
