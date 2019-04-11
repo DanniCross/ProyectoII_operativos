@@ -7,6 +7,7 @@
 #include "/run/media/josec/Jose Cruz/Documentos/VIMProjects/ProyectoI/LosLadrones/LeerTXT.h"
 #include "/run/media/josec/Jose Cruz/Documentos/VIMProjects/ProyectoII/hora.h"
 #include "/run/media/josec/Jose Cruz/Documentos/VIMProjects/ProyectoII/cajas.h"
+#include "/run/media/josec/Jose Cruz/Documentos/VIMProjects/ProyectoII/prioridades.h"
 
 typedef struct{
     char *proceso;
@@ -24,13 +25,17 @@ procesosT;
 procesosT *procT = NULL;
 procesosT *procT2 = NULL;
 procesos *Leer();
+
 void hora();
 void *atiende(void *args);
+procesos *ABPX(procesos *proc, procesos *procT);
 
 void main(int argc, char *argv[]){
     int cont = 0;
     int cajas = 0;
     procT = Leer();
+    procT2 = Leer();
+    procT = ABPX(procT, procT2);
     cont = procT[0].cont;
     pthread_t caja;
     Hora();

@@ -7,6 +7,5 @@
 void ABPX(procesos *proc, procesos *proT, int cont);
 
 void *atiende(void *args){ 	
-    printf("Se ha creado un nuevo hilo");
-    printf("\n");
+    
 }
